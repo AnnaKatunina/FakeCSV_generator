@@ -171,6 +171,6 @@ def check_status(request):
                 'dataset_status': dataset.status
             }
             if dataset.status == 'Ready':
-                data_dataset_id['csv_file'] = dataset.csv_file.url
+                data_dataset_id['csv_file'] = str(dataset.csv_file)
             data.append(data_dataset_id)
         return JsonResponse(data, safe=False)

@@ -28,7 +28,7 @@
             <td>{{ dataset.created|date:"Y-m-d" }}</td>
             <td><p id="status-btn{{ dataset.id }}" class="btn btn-{% if dataset.csv_file %}success{% else %}secondary{% endif %}">{{ dataset.status }}</p></td>
             <td id="download-td{{ dataset.id }}">
-                {% if dataset.csv_file %}<a href="{{ dataset.csv_file.url }}" id="download-btn{{ dataset.id }}"
+                {% if dataset.csv_file %}<a href="{{ dataset.csv_file}}" id="download-btn{{ dataset.id }}"
                                             class="p mr-4">Download</a>{% endif %}
                 <a href="{% url 'delete_dataset' dataset.id %}" class="p" style="color: #D9534F">Delete</a>
             </td>
