@@ -30,9 +30,9 @@ def generate_csv_file(schema_id, number_rows, dataset_id):
             for column in columns:
                 fake_data.append(get_fake_data(column.type, column.From, column.To))
             writer.writerow(fake_data)
-        uploaded_file = cloudinary.uploader.upload(csv_file.name, resource_type='auto')
-        logger.info(uploaded_file)
-        dataset.csv_file = uploaded_file['secure_url']
-        dataset.status = Dataset.Status.READY
-        dataset.save()
+    uploaded_file = cloudinary.uploader.upload('media/' + filename, resource_type='raw')
+    logger.info(uploaded_file)
+    dataset.csv_file = uploaded_file['secure_url']
+    dataset.status = Dataset.Status.READY
+    dataset.save()
     return
